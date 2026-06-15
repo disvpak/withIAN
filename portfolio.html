@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>portfolio</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <h1>MY PORTFOLIO</h1>
+
+  <div class="grid">
+    <div class="card" onclick="openModal('img/전시.png','숨은한끼','2026 성과 전시회')">
+      <img class="card-thumb" src="img/전시.png" alt="01">
+      <div class="card-info">
+        <h3>숨은한끼</h3>
+        <span>2026 성과 전시회</span>
+      </div>
+    </div>
+
+    <div class="card" onclick="openModal('img/대외.png','ㅇㅇ주에도 독서하자','인스타그램 대외활동')">
+      <img class="card-thumb" src="img/대외.png" alt="02">
+      <div class="card-info">
+        <h3>ㅇㅇ주에도 독서하자</h3>
+        <span>인스타그램 대외활동</span>
+      </div>
+    </div>
+
+    <div class="card" onclick="openModal('img/피치.png','피치 콜라겐 스틱','상세페이지')">
+      <img class="card-thumb" src="img/피치.png" alt="03">
+      <div class="card-info">
+        <h3>피치 콜라겐 스틱</h3>
+        <span>상세페이지</span>
+      </div>
+    </div>
+
+    <div class="card" onclick="openModal('img/혈당.png','젠바디 혈당건강 플러스','상세페이지')">
+      <img class="card-thumb" src="img/혈당.png" alt="01">
+      <div class="card-info">
+        <h3>젠바디 혈당건강 플러스</h3>
+        <span>상세페이지</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-bg" id="modal-bg" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">X</button>
+      <img class="modal-thumb" id="modal-img" src="" alt="">
+      <div class="modal-body">
+        <h2 id="modal-title"></h2>
+        <p id="modal-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(imgSrc, title, desc) {
+      document.getElementById('modal-img').src = imgSrc;
+      document.getElementById('modal-img').alt = title;
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-desc').textContent = desc;
+      document.getElementById('modal-bg').classList.add('open');
+    }
+
+    function closeModal(e) {
+      const modalBg = document.getElementById('modal-bg');
+      if (!e || e.target === modalBg || e.target.classList.contains('modal-close')) {
+        modalBg.classList.remove('open');
+      }
+    }
+  </script>
+</body>
+</html>
